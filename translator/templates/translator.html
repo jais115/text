@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script><script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Translator!</title>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        
+          <a class="navbar-brand" href="#"><h4>CloudNext Technologies</h4></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=""><h4>Translator</h4></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href=""><h4>Home</h4></a>
+              </li>
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <strong>Other Services</strong>
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <li><a class="dropdown-item" href="#"><strong>Speech To Text</strong></a></li>
+                  <li><a class="dropdown-item" href="#"><strong>Text to Speech</strong></a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item" href="#"><strong>Real time Voice to Voice Translator</strong></a></li>
+                </ul>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+              </li>
+            </ul>
+                  
+          </div>
+        </div>
+      </nav>
+
+
+
+      <form action="translated/" method="get">
+        <br>
+        
+        <div class="p-3 mb-2 bg-primary text-white">
+        
+          <center><h5><label for="exampleFormControlTextarea1">Enter the text in any language you want</label></h5></center>
+          <textarea name = "text" 
+          {% comment %} id="convert_text" {% endcomment %}
+          placeholder="Start Typing Text To Translate" 
+          class="form-control"  
+          rows="7" cols="60" 
+          id="input-textarea" 
+          maxlength="50000"></textarea>
+          <button id="click_to_convert"><strong>Speak</strong></button>
+        </div>
+        {% comment %} <div class="voice_to_text"> {% endcomment %}
+
+       <div class="count">
+
+        <p> <strong id="charac-count"> Charactor</strong> <span id="show"> Total Charactor</span> &emsp; <strong id="word-count"> Word</strong><span id="show"> Total Word</span>
+      </p>
+    </div> 
+      
+      <div class="p-3 mb-2 bg-primary text-white">
+      <center><h5> <label for="exampleFormControlSelect2">Select language </label></h5></center>
+          <select multiple class="form-control" id="exampleFormControlSelect2" name="lang" rows="">
+            
+            <option value="af"> Afrikaans</option> 
+            <option value="sq">Albanian</option>
+            <option value="sq">Albanian</option>
+            <option value="am">Amharic</option>
+            <option value="ar">Arabic</option>
+            <option value="hy">Armenian</option>
+            {% comment %} <option value="hy">Assamese</option>
+            <option value="hy">Aymara</option> {% endcomment %}
+            <option value="az">Azerbaijani</option>
+            {% comment %} <option value="my">Bambara</option> {% endcomment %}
+            <option value="eu">Basque</option>
+            <option value="be">Belarusian</option>
+            <option value="bn">Bengali</option>
+            {% comment %} <option value="eu">Bhojpuri</option> {% endcomment %}
+            <option value="bs">Bosnian</option>
+            <option value="bg">Bulgarian</option>
+            <option value="my">Burmese Myanmar</option>
+            <option value="ca">Catalan</option>
+            <option value="ceb">Cebunao</option>
+            <option value="ny">Chichewa</option>
+            <option value="zh-cn"> Chinese Simplified</option>
+            <option value="zh-tw"> Chinese Traditional</option>
+            <option value="co">Corscian</option>
+            <option value="hr">Croatian</option>
+            <option value="cs">Czech</option>
+            <option value="da">Danish</option>
+            {% comment %} <option value="co">Dhivehi</option>
+            <option value="co">Dogri</option> {% endcomment %}
+            <option value="nl">Dutch</option>
+            <option value="en">English</option>
+            <option value="eo">Esperanto</option>
+            <option value="et">Estonian</option>
+            {% comment %} <option value="eo">Ewe</option> {% endcomment %}
+            <option value="fi">Finnish</option>
+            <option value="tl">Filipino</option>
+            <option value="fr">French</option>
+            <option value="fy">Frisian</option>
+            <option value="gl">Galician</option>
+            <option value="ka">Georgian</option>
+            <option value="de">German</option>
+            <option value="el">Greek</option>
+            {% comment %} <option value="ka">Guarani</option> {% endcomment %}
+            <option value="gu">Gujarati</option>
+            <option value="ht">haitian creole</option>
+            <option value="ha">Hausa</option>
+            <option value="haw">Hawaiian</option>
+            <option value="he">Hebrew</option>
+            <option value="iw">Hebrew</option>
+            <option value="hmn">Hmong</option>
+            <option value="hi">Hindi</option>
+            <option value="hu">Hungarian</option>
+            <option value="is">Icelandic</option>
+            <option value="ig">Igbo</option>
+            {% comment %} <option value="is">Ilocano</option> {% endcomment %}
+            <option value="id">Indonesian</option>
+            <option value="ga">Irish</option>
+            <option value="it">Italian</option>
+            <option value="ja">Japanese</option>
+            <option value="jw">Javanese</option>
+            <option value="kn">Kannada</option>
+            <option value="kk">Kazakh</option>
+            <option value="km">Khmer</option>
+            {% comment %} <option value="kn">Kinyarwanda</option>
+            <option value="kn">Konkani</option> {% endcomment %}
+            <option value="ko">Korean</option>
+            <option value="ku">Kurdish (kurmanji)</option>
+            <option value="ku">Kurdish (Sorani)</option>
+            <option value="ky">Kyrgyz</option>
+            <option value="lo">Lao</option>
+            <option value="lv">Latvian</option>
+            {% comment %} 
+            <option value="lb">Latvian</option>
+            <option value="lb">Lingala</option>
+            <option value="lb">Luganda</option> {% endcomment %}
+            <option value="lb">Luxembourgish</option>
+            <option value="mk">Macedonian(mac/mkd)</option>
+            {% comment %} <option value="mai">Maithili</option> {% endcomment %}
+            <option value="mk">Malagasy</option>
+            <option value="ms">Malay</option>
+            <option value="ml">Malayalam</option>
+            <option value="lt">Maltese</option>
+            <option value="mi">Maori</option>
+            <option value="mr">Marathi</option>
+            {% comment %} <option value="mr">Meiteilon (Manipuri)</option>
+            <option value="mr">Mizo</option> {% endcomment %}
+            <option value="mn">Mongolian</option>
+            <option value="my">Myanmar (Burmese)</option>
+            <option value="ne">Nepali</option>
+            <option value="no">Norwegian</option>
+            <option value="or">Odia(Oriya)</option>
+            {% comment %} <option value="mr">Oromo</option> {% endcomment %}
+            <option value="ps">Pashto</option>
+            <option value="fa">Persia</option>
+            <option value="pl">Polish</option>
+            <option value="pt">Portuguese</option>
+            <option value="pa">Punjabi</option>
+            {% comment %} <option value="pl">Quechua</option> {% endcomment %}
+            <option value="ro">Romanian</option>
+            <option value="ru">Russian</option>
+            <option value="sm">Samoan</option>
+            {% comment %} <option value="sm">Sanskrit</option> {% endcomment %}
+            <option value="gd">Scottish Gaelic</option>
+            {% comment %} <option value="gd">Sepedi</option> {% endcomment %}
+            <option value="sr">Serbian</option>
+            <option value="st">Sesotho</option>
+            <option value="sn">Shona</option>
+            <option value="sd">Sindhi</option>
+            <option value="si">Sinhala</option>
+            <option value="sk">Slovak</option>
+            <option value="sl">Slovenian</option>
+            <option value="so">Somali</option>
+            <option value="es">Spanish</option>
+            <option value="sr">Serbian</option>
+            <option value="su">Sudanese</option>
+            <option value="sw">Swahili</option>
+            <option value="sv">Swedish</option>
+            <option value="tg">Tajik</option>
+            <option value="ta">Tamil</option>
+            {% comment %} <option value="ta">Tatar</option> {% endcomment %}
+            <option value="te">Telugu</option>
+            <option value="th">Thai</option>
+            {% comment %} <option value="tg">Tigrinya</option>
+            <option value="tg">Tsonga</option> {% endcomment %}
+            <option value="tr">Turkish</option>
+            {% comment %} <option value="tg">Turkmen</option>
+            <option value="tg">Twi</option> {% endcomment %}
+            <option value="uk">Ukrainian</option>
+            <option value="ur">Urdu</option>
+            <option value="ug">Uyghur</option>
+            <option value="uz">Uzbek</option>
+            <option value="vi">Vietnamese</option>
+            <option value="cy">Welsh</option>
+            <option value="xh">xhosa</option>
+            <option value="yi">Yiddish</option>
+            <option value="yo">Yoruba</option>
+            <option value="zu">Zulu</option>
+            
+           {% comment %} <option value="ar-dz">Algerian Arabic</option> {% endcomment %}
+            {% comment %} <option value="ast">Asturian</option> {% endcomment %}
+            {% comment %} <option value="tt">Tatar</option> {% endcomment %}
+            {% comment %} <option value="udm">Udmurt</option> {% endcomment %}
+            {% comment %} <option value="tk">Turkmen</option> {% endcomment %}
+            {% comment %} <option value="sr-latn">Serbian Latin</option> {% endcomment %}
+            {% comment %} <option value="pt-br">Brazilian Portuguese</option> {% endcomment %}
+            {% comment %} <option value="nn">Norwegian Nynorsk</option> {% endcomment %}
+            {% comment %} <option value="os">Ossetic</option> {% endcomment %}
+            {% comment %} <option value="nb">Norwegian Bokmål</option> {% endcomment %}
+            {% comment %} <option value="kab">Kabyle</option> {% endcomment %}
+            {% comment %} <option value="io">Ido</option> {% endcomment %}
+            {% comment %} <option value="hsb">Upper Sorbian</option> {% endcomment %}
+            {% comment %} <option value="ia">Interlingua</option> {% endcomment %}
+            {% comment %} <option value="en-au">Australian English</option> {% endcomment %}
+            {% comment %} <option value="en-bg">British English</option> {% endcomment %}
+            {% comment %} <option value="es-ar">Argentinian Spanish</option> {% endcomment %}
+            {% comment %} <option value="es-co">Colombian Spanish</option> {% endcomment %}
+            {% comment %} <option value="es-mx">Mexican Spanish</option> {% endcomment %}
+            {% comment %} <option value="es-ni">Nicaraguan Spanish</option> {% endcomment %}
+            {% comment %} <option value="es-ve">Venezuelan Spanish</option> {% endcomment %}
+            {% comment %} <option value="br">Breton</option> {% endcomment %}
+             {% comment %} <option value="dsb">Lower Sorbian</option> {% endcomment %}
+
+        </select>
+        </div>
+        <br>
+        <center>
+        <h3> <button type="submit" class="btn btn-primary">Transcript</button></h3>
+        </center>
+        
+      </form>
+
+      <script >
+
+        {% comment %} click_to_convert.addEventListener('click',function(){
+          var speech = true;
+          window.SpeechRecognition = window.webkitSpeechRecognition;
+          const recognition = new SpeechRecognition();
+          recognition.interimResults = true;
+
+          recognition.addEventListener("result", e=>{
+            const transcript = Array.from(e.results)
+            .map(result =>result[0])
+            .map(result => result.transcript)
+
+            convert_text.innerHTML = transcript;
+            })
+          if (speech == true){
+          recognition.start();
+        }
+      })   {% endcomment %}
+       
+
+      let inputTextArea = document.getElementById
+        ("input-textarea");
+        let characCount = document.getElementById
+        ("charac-count");
+        let wordCount = document.getElementById
+        ("word-count");
+
+        inputTextArea.addEventListener("input", () =>{
+          characCount.textContent = inputTextArea.value.length;
+
+          let txt = inputTextArea.value.trim();
+          wordCount.textContent = txt.split(/\s+/).filter(
+          (item) =>item).length;
+        }) 
+          {% comment %} function countWord() {
+              var words = document
+                  .getElementById("word").value;
+              var count = 0;
+              var split = words.split(' ');
+   
+              for (var i = 0; i < split.length; i++) {
+                  if (split[i] != "") {
+                      count += 1;
+                  }
+              }
+              document.getElementById("show")
+                  .innerHTML = count; }{% endcomment %}
+          
+
+
+   
+    </script>
+   
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>
+
